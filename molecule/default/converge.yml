@@ -3,10 +3,10 @@
   hosts: all
   tasks:
     # replace these tasks with whatever you find suitable to test
-    - name: Copy something to test use of synchronize module
-      ansible.builtin.copy:
-        src: /etc/hosts
-        dest: /tmp/hosts-from-controller
-    - name: "Include spreadcat.joplin"
+    - name: INLCUDE VARIABLES
+      ansible.builtin.include_vars: ../../defaults/main.yml
+    - name: INCLUDE VARIABLES
+      ansible.builtin.include_vars: ./variables.yml
+    - name: INCLUDE SPREADCAT.JOPLIN
       ansible.builtin.include_role:
         name: "spreadcat.joplin"

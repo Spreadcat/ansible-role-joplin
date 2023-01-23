@@ -1,2 +1,72 @@
 ---
 # defaults file for joplin
+#
+#
+# install the Joplin CLI client
+joplin_client_cli: false
+
+joplin_client_cli_package: joplin
+
+
+# Default to install the client desktop.
+joplin_client_desktop: false
+
+# Version number to install for the client desktop version
+joplin_client_desktop_version: 2.8.7
+
+# Default appimage url for the client desktop
+joplin_client_desktop_appimage_url: 'https://github.com/laurent22/joplin/releases/download/v{{ joplin_client_desktop_version }}/Joplin-{{ joplin_client_desktop_version }}.AppImage'
+
+
+# Default path to the joplin desktop config file
+joplin_desktop_path_config_file: "{{ joplin_dir_user_config }}/settings.json"
+
+# Default Changes to the configuration
+joplin_desktop_config_settings: {}
+
+joplin_user: "{{ lookup('env', 'USER') }}"
+joplin_user_home: "{{ lookup('env', 'HOME') }}"
+
+joplin_dir_user_config: "{{ joplin_user_home }}/.config/joplin-desktop"
+
+# Enabled/Disable the installation of additional tools for joplin
+# See the README.md for details.
+joplin_install_tools: false
+
+joplin_plugins: []
+
+joplin_plugins_data:
+  automatic_backlinks_to_note:
+    filename: joplin.plugin.ambrt.backlinksToNote.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/joplin.plugin.ambrt.backlinksToNote/plugin.jpl'
+  notevariables:
+    filename: com.DanteCoder.NoteVariables.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/com.DanteCoder.NoteVariables/plugin.jpl'
+  autolinker:
+    filename: com.s73ph4n.autolinker.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/com.s73ph4n.autolinker/plugin.jpl'
+  insert_date:
+    filename: joplin-insert-date.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/joplin-insert-date/plugin.jpl'
+  make_all_links:
+    filename: com.s73ph4n.make_all_links.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/com.s73ph4n.make_all_links/plugin.jpl'
+  markdown_table_sortable:
+    filename: com.hieuthi.joplin.markdown-table-sortable.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/com.hieuthi.joplin.markdown-table-sortable/plugin.jpl'
+  link_graph_ui:
+    filename: io.treymo.LinkGraph.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/io.treymo.LinkGraph/plugin.jpl'
+  note_tabs:
+    filename: joplin.plugin.note.tabs.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/joplin.plugin.note.tabs/plugin.jpl'
+  table_formatter:
+    filename: net.rmusin.joplin-table-formatter.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/net.rmusin.joplin-table-formatter/plugin.jpl'
+  templates:
+    filename: joplin.plugin.templates.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/joplin.plugin.templates/plugin.jpl'
+  outline:
+    filename: outline.jpl
+    url: 'https://github.com/joplin/plugins/raw/master/plugins/outline/plugin.jpl'
+
