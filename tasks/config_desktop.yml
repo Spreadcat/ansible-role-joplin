@@ -3,13 +3,19 @@
   ansible.builtin.set_fact:
     joplin_desktop_config_jsondata: "{{ lookup('file', joplin_desktop_path_config_file) | from_json }}"
 
-- name: Config_desktop | Update joplin desktop settings.
+- name: Config Desktop | Stat joplin desktop settings.
+  ansible.builtin.stat:
+    path: "{{ joplin_desktop_path_config_file }}"
+  register: _joplin_desktop_path_config_file
+
+- name: Config Desktop | Update Joplin desktop settings.
   ansible.builtin.set_fact:
     joplin_desktop_config_jsondata: >-
       {% for key, value in joplin_desktop_config_settings.items() -%}
       {% set _ = joplin_desktop_config_jsondata.__setitem__(key, value) -%}
       {% endfor -%}
       {{ joplin_desktop_config_jsondata }}
+  when: _joplin_desktop_path_config_file.stat.exists
 
 - name: Config_desktop | Write joplin desktop settings.
   ansible.builtin.copy:

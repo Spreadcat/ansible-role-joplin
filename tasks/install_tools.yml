@@ -1,5 +1,6 @@
 ---
-- name: Install_tools | Manage joplinclean.
+- name: Install tools | Manage joplinclean.
+  become: true
   ansible.builtin.copy:
     src: joplinclean
     dest: /usr/local/bin/joplinclean

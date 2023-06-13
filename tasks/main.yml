@@ -11,10 +11,9 @@
       ansible.builtin.include_tasks: install_desktop.yml
     - name: Main | Include install_plugins tasks.
       ansible.builtin.include_tasks: install_plugins.yml
-    - name: Main | Include config_desktop tasks
+    - name: Main | Inlcude config_desktop tasks.
       ansible.builtin.include_tasks: config_desktop.yml
 
-- name: Main | Include install_tools tasks
+- name: Main | Include install_tools tasks.
   ansible.builtin.include_tasks: install_tools.yml
   when: joplin_install_tools|bool
-...

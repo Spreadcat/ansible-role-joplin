@@ -2,7 +2,7 @@
 # Install Joplin desktop client
 - name: Install_desktop | Include appimage installation role.
   ansible.builtin.include_role:
-    name: appimage
+    name: spreadcat.appimage
   vars:
     appimage_download_urls:
       - url: "{{ joplin_client_desktop_appimage_url }}"
