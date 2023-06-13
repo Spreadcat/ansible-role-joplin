@@ -1,5 +1,5 @@
 ---
-- name: Converge
+- name: Molecule | Converge
   hosts: all
   tasks:
     - name: "Converge | Include joplin role."
