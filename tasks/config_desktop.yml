@@ -1,27 +1,21 @@
 ---
+- name: Config_desktop | Read configuration file.
+  ansible.builtin.set_fact:
+    joplin_desktop_config_jsondata: "{{ lookup('file', joplin_desktop_path_config_file) | from_json }}"
 
-- name: READ CONFIG FILE
-  set_fact:
-    joplin_desktop_config_jsondata: "{{ lookup('file', joplin_desktop_path_config_file)|from_json }}"
-
-- name: STAT JOPLIN DESKTOP SETTINGS
-  stat:
-    path: "{{ joplin_desktop_path_config_file }}"
-  register: _joplin_desktop_path_config_file
-
-- name: UPDATE JOPLIN DESKTOP SETTINGS
-  set_fact:
+- name: Config_desktop | Update joplin desktop settings.
+  ansible.builtin.set_fact:
     joplin_desktop_config_jsondata: >-
       {% for key, value in joplin_desktop_config_settings.items() -%}
-      {% set _ = joplin_desktop_config_jsondata.__setitem__( key, value ) -%}
+      {% set _ = joplin_desktop_config_jsondata.__setitem__(key, value) -%}
       {% endfor -%}
       {{ joplin_desktop_config_jsondata }}
-  when: _joplin_desktop_path_config_file.stat.exists
 
-- name: WRITE JOPLIN DESKTOP SETTINGS
-  copy:
+- name: Config_desktop | Write joplin desktop settings.
+  ansible.builtin.copy:
     dest: "{{ joplin_desktop_path_config_file }}"
-    content: "{{ joplin_desktop_config_jsondata|to_nice_json }}"
+    content: "{{ joplin_desktop_config_jsondata | to_nice_json }}"
     force: true
-    backup: true
-...
+    mode: '0644'
+    owner: "{{ joplin_user }}"
+    group: "{{ joplin_user }}"

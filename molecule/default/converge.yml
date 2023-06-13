@@ -2,11 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    # replace these tasks with whatever you find suitable to test
-    - name: INLCUDE VARIABLES
-      ansible.builtin.include_vars: ../../defaults/main.yml
-    - name: INCLUDE VARIABLES
-      ansible.builtin.include_vars: ./variables.yml
-    - name: INCLUDE SPREADCAT.JOPLIN
+    - name: "Converge | Include joplin role."
       ansible.builtin.include_role:
         name: "spreadcat.joplin"

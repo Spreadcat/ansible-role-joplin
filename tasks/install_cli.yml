@@ -1,7 +1,7 @@
 ---
-#- name: MANAGE CLI CLIENT
-#  npm:
-#    state: present
-#    name: "{{ joplin_client_cli_package }}"
-#    version: "{{ joplin_client_cli_version | default(omit) }}"
-#    global: true
+- name: Install_cli | Manage cli client.
+  community.general.npm:
+    state: present
+    name: "{{ joplin_client_cli_package }}"
+    version: "{{ joplin_client_cli_version | default(omit) }}"
+    global: true
