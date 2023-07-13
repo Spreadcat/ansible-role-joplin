@@ -5,6 +5,13 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Example assertion
-      assert:
-        that: true
+
+    - name: Verify | Joplin-desktop binary is available
+      ansible.builtin.stat:
+        path: /usr/local/bin/joplin-desktop
+      register: __verify_file
+      failed_when: >
+        __verify_file is failed or
+        not __verify_file.stat.exists or
+        not __verify_file.stat.islnk or
+        not __verify_file.stat.executable

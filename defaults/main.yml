@@ -48,7 +48,7 @@ joplin_client_desktop_appimage_url: 'https://github.com/laurent22/joplin/release
 #   joplin_dir_user_.config: "/home/user/.config/joplin-desktop"
 #
 # doca tags:other
-joplin_dir_user_config: "{{ lookup('env', 'HOME') }}/.config/joplin-desktop"
+joplin_dir_user_config: "{{ joplin_user_home }}/.config/joplin-desktop"
 
 # Sets the path to the joplin desktop configuration file.
 #
@@ -79,6 +79,14 @@ joplin_desktop_config_settings: {}
 #
 # doca tags:other
 joplin_user: "{{ lookup('env', 'USER') }}"
+
+# Sets the path to the home directory of the user
+#
+# Example:
+#   joplin_user_home: "/home/jdoe"
+#
+# doca tags:other
+joplin_user_home: "{{ lookup('env', 'HOME') }}"
 
 # If set to true this parameter till install additional tools for joplin
 # onto the host system.
