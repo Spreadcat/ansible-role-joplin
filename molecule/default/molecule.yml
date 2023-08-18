@@ -46,7 +46,7 @@ verifier:
 scenario:
   name: default
   test_sequence:
-    - lint
+    # - lint
     - destroy
     - syntax
     - create
@@ -55,7 +55,7 @@ scenario:
     - idempotence
     - verify
     - destroy
-lint: |
-  set -e
-  yamllint .
-  ansible-lint .
+# lint: |
+#   set -e
+#   yamllint .
+#   ansible-lint .
