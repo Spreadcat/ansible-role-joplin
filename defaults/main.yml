@@ -78,7 +78,7 @@ joplin_desktop_config_settings: {}
 #   joplin_user: "jdoe"
 #
 # doca tags:other
-joplin_user: "{{ lookup('env', 'USER') }}"
+joplin_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
 
 # Sets the path to the home directory of the user
 #
@@ -86,7 +86,7 @@ joplin_user: "{{ lookup('env', 'USER') }}"
 #   joplin_user_home: "/home/jdoe"
 #
 # doca tags:other
-joplin_user_home: "{{ lookup('env', 'HOME') }}"
+joplin_user_home: "{{ lookup('ansible.builtin.env', 'HOME') }}"
 
 # If set to true this parameter till install additional tools for joplin
 # onto the host system.
