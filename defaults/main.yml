@@ -40,7 +40,7 @@ joplin_client_cli_package: "joplin"
 #     https://github.com/joplin/image.AppImage
 #
 # doca tags:other
-joplin_client_desktop_appimage_url: 'https://github.com/laurent22/joplin/releases/download/v2.6.10/Joplin-2.6.10.AppImage'
+joplin_client_desktop_appimage_url: 'https://github.com/laurent22/joplin/releases/download/v{{ joplin_client_desktop_version }}/Joplin-{{ joplin_client_desktop_version }}.AppImage'
 
 # Sets the path to the user configuration directory for joplin.
 #
