@@ -44,7 +44,9 @@ provisioner:
 verifier:
   name: ansible
 scenario:
-  name: default
+  name: install_cli
+  converge_sequence:
+    - converge
   test_sequence:
     - destroy
     - syntax

@@ -5,6 +5,6 @@
 # deployment.
 
 # Example:
-# fule_replace_meta_file: true
-# fule_molecule_scenarios:
-#   - scenario1
+fule_replace_meta_file: true
+fule_molecule_scenarios:
+  - install_cli
