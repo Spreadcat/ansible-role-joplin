@@ -1,0 +1,5 @@
+---
+- name: Install_cli | Verify
+  hosts: all
+  gather_facts: false
+  tasks: []

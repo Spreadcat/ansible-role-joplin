@@ -1,7 +1,37 @@
 ---
-- name: Install_cli | Manage cli client.
-  community.general.npm:
+- name: Install_cli | Update apt-cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 7200
+  when: ansible_os_family | lower == 'debian'
+
+- name: Install_cli | Install requirements
+  become: true
+  ansible.builtin.package:
+    name: "{{ joplin_packages[ansible_os_family|lower]['requirements'] }}"
     state: present
-    name: "{{ joplin_client_cli_package }}"
-    version: "{{ joplin_client_cli_version | default(omit) }}"
+
+- name: Install_cli | Install on Debian
+  when: ansible_os_family | lower == 'debian'
+  block:
+
+    - name: Install_cli | Add to apt key ring
+      ansible.builtin.apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+        state: present
+
+    - name: Install_cli | Add apt repository
+      ansible.builtin.apt_repository:
+        repo: "deb https://deb.nodesource.com/node_20.x nodistro main"
+        state: present
+        filename: nodesource
+
+    - name: Install_cli | Install nodejs
+      ansible.builtin.package:
+        name: "{{ joplin_packages[ansible_os_family|lower]['cli'] }}"
+        state: present
+
+- name: Install_cli | Install Terminal application
+  community.general.npm:
     global: true
+    name: joplin

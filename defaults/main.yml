@@ -29,6 +29,19 @@ joplin_client_desktop: false
 # doca tags:other
 joplin_client_cli_package: "joplin"
 
+joplin_packages:
+  redhat:
+    cli: []
+    requirements:
+      - nodejs
+  debian:
+    requirements:
+      - ca-certificates
+      - curl
+      - gnupg
+    cli:
+      - nodejs
+
 # Sets the default appimage url for joplin desktop to install
 # via appimage.
 #
