@@ -8,7 +8,7 @@
 - name: Install_cli | Install requirements
   become: true
   ansible.builtin.package:
-    name: "{{ joplin_packages[ansible_os_family|lower]['requirements'] }}"
+    name: "{{ joplin_packages[ansible_os_family | lower]['requirements'] }}"
     state: present
 
 - name: Install_cli | Install on Debian
@@ -28,7 +28,7 @@
 
     - name: Install_cli | Install nodejs
       ansible.builtin.package:
-        name: "{{ joplin_packages[ansible_os_family|lower]['cli'] }}"
+        name: "{{ joplin_packages[ansible_os_family | lower]['cli'] }}"
         state: present
 
 - name: Install_cli | Install Terminal application

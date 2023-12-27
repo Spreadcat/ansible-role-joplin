@@ -1,10 +1,10 @@
 ---
-- name: Molecule | Converge
+- name: Default | Converge
   hosts: all
   tasks:
-    - name: "Converge | Include variables."
+    - name: "Converge | Include variables"
       ansible.builtin.include_vars: variables.yml
 
-    - name: "Converge | Include joplin role."
+    - name: "Converge | Include joplin role"
       ansible.builtin.include_role:
         name: "spreadcat.joplin"
