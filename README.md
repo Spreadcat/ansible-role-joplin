@@ -15,6 +15,12 @@ joplin_client_desktop: bool
 * If set to true, this option will install the joplin desktop client on the host.
 
 ```yaml
+joplin_client_cli: bool
+```
+
+* If set to true, this option will install the Joplin CLI on the host.
+
+```yaml
 joplin_desktop_config_settings: dict
 ```
 
@@ -59,6 +65,12 @@ joplin_dir_user_config: str
 * Sets the path to the user configuration directory for joplin.
 
 ```yaml
+joplin_packages: dict
+```
+
+* Defines the main packages and requirements for supported OS when installing Joplin CLI.
+
+```yaml
 joplin_plugins_data: dict
 ```
 
@@ -81,6 +93,16 @@ joplin_desktop_config_settings:
   spellchecker.languate: en-US
   trackLocation: 'false'
 ```
+
+* Dict with key:values for the configuration settings that can be set in Joplin.
+  This clearly should be documented better, since not all settings are being honored.
+  Handling the config file still is a minefield.
+
+```yaml
+joplin_user_home: str
+```
+
+* Path to the home directory of the user. Defaults to `~` of the current user.
 
 ## Supported Joplin plugins
 
