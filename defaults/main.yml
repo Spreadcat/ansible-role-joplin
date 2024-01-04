@@ -29,6 +29,19 @@ joplin_client_desktop: false
 # doca tags:other
 joplin_client_cli_package: "joplin"
 
+
+
+# Dict with packages for installing joplin desktop
+# The desktop version installs an Appimage version while
+# the cli requirs nodejs.
+#
+# Example:
+#   joplin_packages:
+#     redhat:
+#       cli: []
+#       requirements:
+#         - nodejs
+# doca tags:other
 joplin_packages:
   redhat:
     cli: []
