@@ -32,6 +32,7 @@
         state: present
 
 - name: Install_cli | Install Terminal application
+  become: true
   community.general.npm:
     global: true
     name: joplin
